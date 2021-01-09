@@ -12,11 +12,11 @@ To train a new model, use the `main.py` script.
 
 The template command to produce model of Multi-stream-merge on the dataset can be:
 
-`python main.py  train_list  test_list  result_path  --dataset -b. –gpus`
+`python main.py  <train_list>  <test_list>  <result_path>  --<dataset> -b. –gpus`
 
 The template command to test model of Multi-stream-merge on the dataset can be:
 
-`python main.py  train_list  test_list  result_path  --dataset -b. –gpus -e --resume`
+`python main.py  <train_list>  <test_list>  <result_path>  --<dataset> -b. –gpus -e --resume`
 
 ## Training Multi-stream-merge
 For example, in order to train the Multi-stream-merge, we first need to extract local features through TSN:
