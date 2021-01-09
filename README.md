@@ -19,7 +19,11 @@ The template command to test model of Multi-stream-merge on the dataset can be:
 `python main.py  <train_list>  <test_list>  <result_path>  --<dataset> -b. –gpus -e --resume`
 
 ## Training Multi-stream-merge on 'Pandakill' dataset
-For example, in order to train the Multi-stream-merge on 'Pandakill' datset, we first need to extract local features through TSN:
+For example, in order to train the Multi-stream-merge on 'Pandakill' datset:
+
+The <train_list> is shown in `/data/train_pandakill_5.txt` and <test_list> is shown in `/data/test_pandakill_5.txt`.
+
+We first need to extract local features through TSN:
 
 `python main.py /data/train_pandakill_5.txt /data/test_pandakill_5.txt /data/pandakill_result/ /home/glq/exp/data/pandakill --dataset pandakill -b 2 --gpus 0 1`
 
@@ -29,6 +33,10 @@ Then fusion training to get Multi-stream-merge:
 
 The command to test Multi-stream-merge can be:
 `python main.py /data/train_pandakill_5.txt /data/test_pandakill_5.txt /data/pandakill_result/ /home/glq/exp/data/pandakill --dataset pandakill -b 2 --gpus 0 1 -merge --resume /data/pandakill_result/_rgb_checkpoint_merge.pth.tar -e`
+
+The log during the training is shown in `data/result_pandakill_5`.
+
+
 
 # Comparative Experiment
 In addition to our proposed model, we have also reproduced the 3 baseline models (TSN, LSTM, 3D-CNN) in the folder `baseline`.
