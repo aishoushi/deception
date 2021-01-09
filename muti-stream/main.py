@@ -223,7 +223,6 @@ def validate(val_loader, model, criterion, iter, logger=None):
     batch_time = AverageMeter()
     losses = AverageMeter()
     acc = AverageMeter()
-    aucs = AverageMeter()
     # switch to evaluate mode
     model.eval()
 
@@ -239,11 +238,10 @@ def validate(val_loader, model, criterion, iter, logger=None):
 
         # measure accuracy and record loss
         prec = calculate_accuracy(output.data, target)
-        auc = calculate_auc(output.data[:, 0].cpu(), target.cpu())
 
         losses.update(loss.item(), input.size(0))
         acc.update(prec, input.size(0))
-        aucs.update(auc, input.size(0))
+        
         # measure elapsed time
         batch_time.update(time.time() - end)
         end = time.time()
@@ -252,10 +250,9 @@ def validate(val_loader, model, criterion, iter, logger=None):
             print(('Test: [{0}/{1}]\t'
                   'Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t'
                   'Loss {loss.val:.4f} ({loss.avg:.4f})\t'
-                  'Prec@ {acc.val:.3f} ({acc.avg:.3f})\t'
-                   'auc {auc.val:.3f} ({auc.avg:.3f})'.format(
+                  'Prec@ {acc.val:.3f} ({acc.avg:.3f})'.format(
                    i, len(val_loader), batch_time=batch_time, loss=losses,
-                   acc=acc, auc =aucs)))
+                   acc=acc)))
 
     print(('Testing Results: Prec {acc.avg:.3f}  Loss {loss.avg:.5f}'
           .format(acc=acc, loss=losses)))
