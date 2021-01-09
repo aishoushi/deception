@@ -18,8 +18,8 @@ The template command to test model of Multi-stream-merge on the dataset can be:
 
 `python main.py  <train_list>  <test_list>  <result_path>  --<dataset> -b. –gpus -e --resume`
 
-## Training Multi-stream-merge
-For example, in order to train the Multi-stream-merge, we first need to extract local features through TSN:
+## Training Multi-stream-merge on 'Pandakill' dataset
+For example, in order to train the Multi-stream-merge on 'Pandakill' datset, we first need to extract local features through TSN:
 
 `python main.py /data/train_pandakill_5.txt /data/test_pandakill_5.txt /data/pandakill_result/ /home/glq/exp/data/pandakill --dataset pandakill -b 2 --gpus 0 1`
 
