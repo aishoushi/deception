@@ -34,7 +34,7 @@ Then fusion training to get Multi-stream-merge:
 The command to test Multi-stream-merge can be:
 `python main.py /data/train_pandakill_5.txt /data/test_pandakill_5.txt /data/pandakill_result/ /home/glq/exp/data/pandakill --dataset pandakill -b 2 --gpus 0 1 -merge --resume /data/pandakill_result/_rgb_checkpoint_merge.pth.tar -e`
 
-The log during the training is shown in `data/result_pandakill_5`.
+The log during the training and the testing resulting are shown in `data/result_pandakill_5`.
 
 
 
