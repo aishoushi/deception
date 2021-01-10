@@ -1,9 +1,9 @@
 # deception_detection
 # Description of the two datasets
 ## 'Court' dataset
-The 'Court' dataset comes from literature[1], which is collected from court trial videos. There are 121 videos in total, 60 videos are labeled 'truth' and 61 are labeled 'lie'. The video file is in `court_video`, and the video frame image file is in `data/court`. In order to ensure the reliability of the results, we conduct 5 experiments for each model and take the average value to obtain the accuracy. In each experiment, 118 videos are randomly divided into 99 training set and 19 test set(3 videos with obvious flaws were discarded).
+The 'Court' dataset comes from literature[1], which is collected from court trial videos. There are 121 videos in total, 60 videos are labeled 'truth' and 61 are labeled 'lie'. The video file is in `court_video`, and the video frame image file is in `data/court`. In order to ensure the reliability of the results, we conduct 5 experiments for each model and take the average value to obtain the accuracy. In each experiment, 118 videos are divided into 99 training set and 19 test set(3 videos with obvious flaws were discarded), <train_list> and <test_list> are in /data .
 ## 'Pandakill' dataset
-We collect and publish a new dataset here called the 'Pandakill' dataset. We collected the video of Werewolf Killing game from public media resources, and edited each player's shots to form a video sample, which is available in https://www.iqiyi.com/a_19rrh9xjrl.html. There are a total of 200 video samples, and the duration of each video sample is 10-50 seconds. There are 15 players in all videos. If the player is a good person, it is marked as 'truth'. If the player is a werewolf, it is marked as 'lie'. In order to ensure the reliability of the results, we conduct 5 experiments for each model and take the average value to obtain the accuracy. In each experiment, 160 videos are randomly divided into training set and 40 test set. The video frame image file is in `data/pandakill_row`, and the video frame image file is in `data/pandakill` after object detection.
+We collect and publish a new dataset here called the 'Pandakill' dataset. We collected the video of Werewolf Killing game from public media resources, and edited each player's shots to form a video sample, which is available in https://www.iqiyi.com/a_19rrh9xjrl.html. There are a total of 200 video samples, and the duration of each video sample is 10-50 seconds. There are 15 players in all videos. If the player is a good person, it is marked as 'truth'. If the player is a werewolf, it is marked as 'lie'. In order to ensure the reliability of the results, we conduct 5 experiments for each model and take the average value to obtain the accuracy. In each experiment, 160 videos are divided into training set and 40 test set, <train_list> and <test_list> are in /data .The video frame image file is in `data/pandakill_row`, and the video frame image file is in `data/pandakill` after object detection.
 # Source code
 The source code of the Multi-stream-merge model is located in the folder `multi-stream`.
 
@@ -12,11 +12,11 @@ To train a new model, use the `main.py` script.
 
 The template command to produce model of Multi-stream-merge on the dataset can be:
 
-`python main.py  <train_list>  <test_list>  <result_path>  --<dataset> -b. –gpus`
+`python main.py  <train_list>  <test_list>  <result_path>  --<dataset> -b –gpus`
 
 The template command to test model of Multi-stream-merge on the dataset can be:
 
-`python main.py  <train_list>  <test_list>  <result_path>  --<dataset> -b. –gpus -e --resume`
+`python main.py  <train_list>  <test_list>  <result_path>  --<dataset> -b –gpus -e --resume`
 
 ## Training Multi-stream-merge on 'Pandakill' dataset
 For example, in order to train the Multi-stream-merge on 'Pandakill' datset:
