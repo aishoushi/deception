@@ -51,7 +51,8 @@ The command to produce model of LSTM on the 'Pandakill' dataset can be:
 
 The command to produce model of 3D-CNN on the 'Pandakill' dataset can be:
 
-`python main.py pandakill RGB /data/train_pandakill.txt /data/test_pandakill.txt --arch resnet101 --num_segments 3 --lr 0.001 --lr_steps 30 60 -b 4 --epochs 40 --dropout 0.8 --gpus 0 1`
+`CUDA_VISIBLE_DEVICES=0,1 python main.py --batch_size 16 --video_path pandakill --annotation_path pandakill.json --result_path result_3dcnn_pandakill --dataset pandakill`
+
 
 # Reference
 [1] V. Pe ŕ ez-Rosas, M. Abouelenien, R. Mihalcea, and M. Burzo. Deception detection using real- life trial data. In International Conference on Multimodal In- teraction, pages 59–66, 2015. 
